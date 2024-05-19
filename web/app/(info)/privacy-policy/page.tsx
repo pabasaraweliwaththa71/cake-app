@@ -94,9 +94,9 @@ export default function PrivacyPolicy() {
         contact us at:
       </p>
       <p className="text-lg">
-        Email: support@zeecakes.com <br />
-        Phone: (123) 456-7890 <br />
-        Address: SLIIT, Malabe, Sri Lanka
+        Email: anythingwithzee@gmail.com <br />
+        Phone:077 112 0559 <br />
+        Address: Kelaniya, Sri Lanka
       </p>
     </div>
   );
