@@ -189,11 +189,11 @@ export default function RootLayout({
                         </a>
                         <a href="">
                           <i className="fa fa-phone" aria-hidden="true" />
-                          <span>Call +94 11238987</span>
+                          <span>Call 077 112 0559</span>
                         </a>
                         <a href="">
                           <i className="fa fa-envelope" aria-hidden="true" />
-                          <span>contact@sliit.com</span>
+                          <span>anythingwithzee@gmail.com</span>
                         </a>
                       </div>
                     </div>
