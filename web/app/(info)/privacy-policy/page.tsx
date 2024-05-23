@@ -16,7 +16,23 @@ export default function PrivacyPolicy() {
         We collect various types of information in connection with the services
         we provide, including:
       </p>
-
+      <ul className="list-disc list-inside text-lg mb-4">
+        <li>
+          <strong>Personal Information:</strong> This includes your name, email
+          address, phone number, and billing information when you create an
+          account, place an order, or participate in our workshops.
+        </li>
+        <li>
+          <strong>Usage Data:</strong> We collect information about your
+          interactions with our website, such as the pages you visit, the time
+          and date of your visit, and the actions you take.
+        </li>
+        <li>
+          <strong>Cookies:</strong> We use cookies and similar tracking
+          technologies to enhance your experience on our website, gather
+          analytical data, and provide personalized content.
+        </li>
+      </ul>
       <h2 className="text-2xl font-bold mt-8 mb-4">
         How We Use Your Information
       </h2>
