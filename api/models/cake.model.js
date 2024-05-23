@@ -1,21 +1,26 @@
-// db/connection.js
-
 const mongoose = require("mongoose");
-const MONGO_URI =
-  "mongodb+srv://anythingwithzee:IJGC5ryFfkYYhYQv@cluster0.obsfmec.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+const cakeSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  image: {
+    type: String,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+});
 
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1); // Exit the process with a failure code
-  }
-};
+const Cake = mongoose.model("Cake", cakeSchema);
 
-module.exports = connectDB;
+module.exports = Cake;
