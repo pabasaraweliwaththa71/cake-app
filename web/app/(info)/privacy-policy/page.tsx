@@ -11,11 +11,7 @@ export default function PrivacyPolicy() {
         services.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Information We Collect</h2>
-      <p className="text-lg mb-4">
-        We collect various types of information in connection with the services
-        we provide, including:
-      </p>
+      
       <ul className="list-disc list-inside text-lg mb-4">
         <li>
           <strong>Personal Information:</strong> This includes your name, email
