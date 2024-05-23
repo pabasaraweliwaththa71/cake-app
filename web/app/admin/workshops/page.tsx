@@ -96,7 +96,7 @@ const AdminAddWorkshop = () => {
     <div className=" flex items-center justify-center">
       <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-semibold text-gray-800">
-          Add New Workshop
+          Add
         </h1>
         {error && <div className="text-red-600 mb-4">{error}</div>}
         <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
