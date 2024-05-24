@@ -33,20 +33,7 @@ export default function PrivacyPolicy() {
           analytical data, and provide personalized content.
         </li>
       </ul>
-      <h2 className="text-2xl font-bold mt-8 mb-4">
-        How We Use Your Information
-      </h2>
-      <p className="text-lg mb-4">
-        We use the collected information for various purposes, including:
-      </p>
-      <ul className="list-disc list-inside text-lg mb-4">
-        <li>Processing and fulfilling your orders</li>
-        <li>Providing customer support</li>
-        <li>Sending you updates about your orders and our services</li>
-        <li>Improving our website and services</li>
-        <li>Conducting marketing and promotional activities</li>
-        <li>Complying with legal obligations</li>
-      </ul>
+      
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Sharing Your Information</h2>
       <p className="text-lg mb-4">
