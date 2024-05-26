@@ -48,7 +48,19 @@ export default function PrivacyPolicy() {
         <li>Complying with legal obligations</li>
       </ul>
 
-     
+      <h2 className="text-2xl font-bold mt-8 mb-4">Sharing Your Information</h2>
+      <p className="text-lg mb-4">
+        We do not sell or share your personal information with third parties for
+        their marketing purposes. However, we may share your data with:
+      </p>
+      <ul className="list-disc list-inside text-lg mb-4">
+        <li>
+          Service providers who assist us in operating our website and
+          delivering our services
+        </li>
+        <li>Payment processors to facilitate transactions</li>
+        <li>Legal authorities if required by law or to protect our rights</li>
+      </ul>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Your Rights</h2>
       <p className="text-lg mb-4">You have the right to:</p>
