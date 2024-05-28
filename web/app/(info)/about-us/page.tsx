@@ -37,3 +37,26 @@ export default function AboutUs() {
         decorators, and take your baking skills to the next level. Check our
         schedule for upcoming workshops.
       </p>
+
+      <h3 className="text-xl font-semibold mb-2">Tutorials</h3>
+      <p className="text-lg mb-4">
+        Explore our collection of tutorials to learn baking and decorating
+        techniques at your own pace. Our step-by-step guides and videos cover a
+        wide range of topics, from basic baking tips to advanced decoration
+        methods.
+      </p>
+
+      
+      <h3 className="text-xl font-semibold mb-2">Gift Hampers</h3>
+      <p className="text-lg mb-4">
+        Our gift hampers are the perfect way to show your loved ones you care.
+        Filled with an assortment of our delicious treats, our hampers make for
+        a thoughtful and delightful gift for any occasion. Customize your hamper
+        with a selection of cakes, cookies, and other goodies.
+      </p>
+
+      <h2 className="text-2xl font-bold mt-8 mb-4">Our Services</h2>
+      <p className="text-lg mb-4">
+        At Our Cake Shop, we are committed to providing exceptional service to
+        our customers. We offer a range of services to meet your needs:
+      </p>
