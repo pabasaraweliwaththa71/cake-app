@@ -193,7 +193,7 @@ export default function RootLayout({
                         </a>
                         <a href="">
                           <i className="fa fa-envelope" aria-hidden="true" />
-                          <span>contact@.com</span>
+                          <span>contact@sliit.com</span>
                         </a>
                       </div>
                     </div>

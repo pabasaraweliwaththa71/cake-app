@@ -18,7 +18,6 @@ exports.createTutorial = async (req, res) => {
     res.status(500).json({ error: "Failed to create tutorial" });
   }
 };
-
 exports.getAllTutorials = async (req, res) => {
   try {
     const tutorials = await Tutorial.find();
@@ -27,7 +26,6 @@ exports.getAllTutorials = async (req, res) => {
     res.status(500).json({ error: "Failed to get tutorials" });
   }
 };
-
 exports.getTutorialById = async (req, res) => {
   try {
     const tutorial = await Tutorial.findById(req.params.id);
