@@ -22,3 +22,18 @@ export default function AboutUs() {
           any special occasion, we have the perfect cake for you.
         </p>
   
+        <h3 className="text-xl font-semibold mb-2">Customized Cakes</h3>
+      <p className="text-lg mb-4">
+        We specialize in creating custom cakes that are tailored to your
+        specific preferences and requirements. From intricate designs to
+        personalized messages, our custom cakes are made to impress and delight.
+        Share your vision with us, and we'll bring it to life.
+      </p>
+
+      <h3 className="text-xl font-semibold mb-2">Workshops</h3>
+      <p className="text-lg mb-4">
+        Our workshops offer hands-on baking and decorating experiences for
+        enthusiasts of all skill levels. Learn from our expert bakers and
+        decorators, and take your baking skills to the next level. Check our
+        schedule for upcoming workshops.
+      </p>
