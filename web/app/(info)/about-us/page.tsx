@@ -60,3 +60,26 @@ export default function AboutUs() {
         At Our Cake Shop, we are committed to providing exceptional service to
         our customers. We offer a range of services to meet your needs:
       </p>
+
+      <ul className="list-disc list-inside text-lg mb-4">
+        <li>
+          Online Ordering: Conveniently order your favorite cakes and treats
+          online.
+        </li>
+        <li>
+          Delivery: Enjoy the convenience of having your order delivered to your
+          doorstep.
+        </li>
+        <li>
+          Custom Orders: Work with our team to create a unique and personalized
+          cake for your special occasion.
+        </li>
+        <li>
+          Workshops and Tutorials: Enhance your baking skills with our
+          expert-led workshops and tutorials.
+        </li>
+        <li>
+          Gift Hampers: Send a delightful gift hamper filled with our delicious
+          treats to someone special.
+        </li>
+      </ul>
