@@ -1,30 +1,37 @@
+// Enable client-side rendering
 "use client";
 
+// Importing useState from React
 import { useState } from "react";
 
+// Exporting the default Page component
 export default function Page() {
-  const [errors, setErrors] = useState({} as any);
+  const [errors, setErrors] = useState({} as any); // Initializing state to store form errors
 
-
+// Function to validate the form data
   function validateForm(data: any) {
     let errors = {} as any;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;// Regex for validating email
+    const phoneRegex = /^[0-9]{10}$/; // Regex for validating phone number
 
+    // Check if name is provided
     if (!data.get("name")) {
       errors.name = "Name is required";
     }
 
+// Check if email is provided and valid
     if (!data.get("email")) {
       errors.email = "Email address is required";
     } else if (!emailRegex.test(data.get("email"))) {
       errors.email = "Invalid email address";
     }
 
+    // Check if address is provided
     if (!data.get("address")) {
       errors.address = "Address is required";
     }
 
+    // Check if phone number is provided and valid
     if (!data.get("phone")) {
       errors.phone = "Phone number is required";
     } else if (!phoneRegex.test(data.get("phone"))) {
