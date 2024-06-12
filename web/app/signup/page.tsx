@@ -38,31 +38,36 @@ export default function Page() {
       errors.phone = "Invalid phone number";
     }
 
+    // Check if province is selected
     if (!data.get("province")) {
       errors.province = "Province is required";
     }
 
+    // Check if password is provided and meets length requirement
     if (!data.get("password")) {
       errors.password = "Password is required";
     } else if (data.get("password").length < 6) {
       errors.password = "Password must be at least 6 characters";
     }
 
+    // Check if confirm password is provided and matches password
     if (!data.get("confirmPassword")) {
       errors.confirmPassword = "Confirm Password is required";
     } else if (data.get("password") !== data.get("confirmPassword")) {
       errors.confirmPassword = "Passwords do not match";
     }
 
-    return errors;
+    return errors; // Return the errors object
   }
 
+  // Function to handle form submission
   function handleSubmit(event: any) {
-    event.preventDefault();
-    const data = new FormData(event.target);
+    event.preventDefault(); // Prevent default form submission
+    const data = new FormData(event.target); // Collect form data
 
-    const errors = validateForm(data);
+    const errors = validateForm(data); // Validate form data
     if (Object.keys(errors).length > 0) {
+        // Set errors if validation fails
       setErrors(errors);
       return;
     }
