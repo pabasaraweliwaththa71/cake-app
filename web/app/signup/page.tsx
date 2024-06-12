@@ -72,9 +72,10 @@ export default function Page() {
       return;
     }
 
-    data.append("role", "user");
-    const value = Object.fromEntries(data.entries());
+    data.append("role", "user"); // Append role to form data
+    const value = Object.fromEntries(data.entries()); // Convert form data to object
 
+    // Send form data to server
     fetch("http://localhost:5000/v1/api/user", {
       method: "POST",
       headers: {
@@ -87,16 +88,17 @@ export default function Page() {
       .then((data) => {
         if (data.message === "successful") {
           console.log("Success:", data);
-          window.location.href = "/login";
+          window.location.href = "/login"; // Redirect to login page on success
         } else {
-          alert(data.error);
+          alert(data.error); // Show error message on failure
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error:", error); // Log errors to console
       });
   }
 
+  // Render the signup form
   return (
     <div className=" flex items-center justify-center ">
       <div className="p-8 bg-white rounded-lg shadow-md">
