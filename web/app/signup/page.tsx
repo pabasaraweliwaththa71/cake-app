@@ -110,6 +110,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+ {/* Name input field */}
             Name
             </label>
 
