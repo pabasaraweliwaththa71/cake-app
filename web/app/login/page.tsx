@@ -24,3 +24,22 @@ export default function Page() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
+
+          if (data.message === "successful") {
+            
+             // Save user token to local storage
+            localStorage.setItem("token", data.token);
+           // Redirect to homepage on successful login
+            window.location.href = "/";
+          } else {
+            // Show error message on failure
+            alert(data.error);
+          }
+        })
+        .catch((error) => {
+            // Log errors to console
+          console.error("Error:", error);
+        });
+    }
+
+    // Render the login form
