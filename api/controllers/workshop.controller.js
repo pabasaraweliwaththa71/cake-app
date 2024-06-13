@@ -1,4 +1,5 @@
 const { Workshop, Registration } = require("../models/workshop.model");
+
 exports.createWorkshop = async (req, res) => {
   try {
     const { title, description, date, link, price, instructor, image } =
@@ -21,6 +22,7 @@ exports.createWorkshop = async (req, res) => {
     res.status(500).json({ error: "Failed to create workshop" });
   }
 };
+
 exports.getAllWorkshops = async (req, res) => {
   try {
     const workshops = await Workshop.find();
