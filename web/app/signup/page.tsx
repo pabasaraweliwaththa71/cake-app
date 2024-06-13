@@ -131,6 +131,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+{/* Email input field */}
               Email address
             </label>
 
@@ -152,6 +153,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+ {/* Address input field */}
               Address
             </label>
             <input
@@ -172,6 +174,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+ {/* Province select field */}
               Province
             </label>
             <select
@@ -199,6 +202,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+ {/* Phone input field */}
               Phone
             </label>
             <input
@@ -219,6 +223,7 @@ export default function Page() {
               className="block text-sm font-medium text-gray-700"
             >
 
+  {/* Password input field */}
               Password
             </label>
             <input
@@ -234,6 +239,7 @@ export default function Page() {
             )}
           </div>
 
+  {/* Confirm Password input field */}
           <div>
             <label
               htmlFor="confirmPassword"
