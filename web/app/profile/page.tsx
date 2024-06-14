@@ -50,10 +50,23 @@ export default function Page() {
         let errors = {} as any;
     
         if (formData.password && formData.password.length < 6) {
+            // Validate password length
           errors.password = "Password must be at least 6 characters";
         }
         if (formData.password !== formData.confirmPassword) {
+            // Validate password confirmation
           errors.confirmPassword = "Passwords do not match";
         }
         return errors;
       }
+
+      // Handle form update
+      // Function to handle form update
+  function handleUpdate() {
+    // Validate form data
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+        // Set validation errors if any
+      setErrors(errors);
+      return;
+    }
