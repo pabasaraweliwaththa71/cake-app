@@ -70,3 +70,40 @@ export default function Page() {
       setErrors(errors);
       return;
     }
+
+    // Clear errors if validation passes
+    setErrors({});
+
+    // Get token from localStorage
+    const token = localStorage.getItem("token") as string;
+    // Decode the token to get user ID
+    const decodedToken = jwtDecode(token) as any;
+
+    fetch(`http://localhost:5000/v1/api/user/${decodedToken.id}`, {
+      // Use PUT method to update user data
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Send updated form data
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "successful") {
+          // Log success message
+          console.log("Update Success:", data);
+          // Update token in localStorage
+          localStorage.setItem("token", data.token);
+          // Refresh user data
+          getUserData();
+          alert("Profile updated successfully"); // Show success alert
+        } else {
+          alert("An error occurred. Please try again."); // Show error alert
+        }
+      })
+      .catch((error) => {
+        alert("An error occurred. Please try again."); // Show error alert
+        console.error("Update Error:", error); // Log error
+      });
+  }
