@@ -107,3 +107,33 @@ export default function Page() {
         console.error("Update Error:", error); // Log error
       });
   }
+
+  // Function to handle profile deletion
+  function handleDelete() {
+    // Get token from localStorage
+    const token = localStorage.getItem("token") as string;
+    // Decode the token to get user ID
+    const decodedToken = jwtDecode(token) as any;
+
+    fetch(`http://localhost:5000/v1/api/user/${decodedToken.id}`, {
+     // Use DELETE method to delete user data
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Clear local storage
+        localStorage.removeItem("token"); // Clear token from localStorage
+// Log success message
+        console.log("Delete Success:", data);
+        // Optionally handle UI update
+
+        // Redirect
+        window.location.href = "/"; // Redirect to home page
+      })
+      .catch((error) => {
+        console.error("Delete Error:", error); // Log error
+      });
+  }
