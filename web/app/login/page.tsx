@@ -91,3 +91,8 @@ export default function Page() {
           >
             Sign in
           </button>
+          </form>
+      </div>
+    </div>
+  );
+}
