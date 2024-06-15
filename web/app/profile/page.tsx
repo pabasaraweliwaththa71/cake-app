@@ -137,3 +137,33 @@ export default function Page() {
         console.error("Delete Error:", error); // Log error
       });
   }
+
+  // Handle input change
+  function handleInputChange(event: any) { // Function to handle input change in the form
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      // Update form data with new value
+      [name]: value,
+    }));
+  }
+
+  return (
+    <>
+     {/* Navigation links */}
+      <div className="flex justify-center items-center space-x-4 p-4">
+        <Link
+          href="/profile/orders"
+          className="py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        >
+          View Orders
+        </Link>
+        <Link
+          href="/profile/customized-cake-request"
+          className="py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        >
+          Customized Cake Request
+        </Link>
+      </div>
+
+      
