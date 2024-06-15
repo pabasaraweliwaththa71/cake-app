@@ -150,7 +150,6 @@ export default function Page() {
 
   return (
     <>
-     {/* Navigation links */}
       <div className="flex justify-center items-center space-x-4 p-4">
         <Link
           href="/profile/orders"
@@ -165,5 +164,32 @@ export default function Page() {
           Customized Cake Request
         </Link>
       </div>
+      <div className="flex items-center justify-center h-screen mt-10  ">
+        <div className="p-8 bg-white rounded-lg shadow-md">
+          <h1 className="text-2xl font-semibold text-gray-800">
+            My Profile ({formData.role})
+          </h1>
+          <form className="mt-4 space-y-4">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
 
-      
+Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
+                placeholder="Name"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
