@@ -262,6 +262,7 @@ Address
             </div>
 
 
+ {/* Phone input */}
             <div>
               <label
                 htmlFor="phone"
@@ -277,5 +278,24 @@ Address
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
                 placeholder="Phone"
+              />
+            </div>
+
+{/* Password input */}
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
+                New Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
+                placeholder="Password"
               />
             </div>
