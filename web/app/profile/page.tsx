@@ -156,22 +156,27 @@ export default function Page() {
           href="/profile/orders"
           className="py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
+
+          {/* Link to View Orders */}
           View Orders
         </Link>
         <Link
           href="/profile/customized-cake-request"
           className="py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
+
+          {/* Link to Request Customized Cake */}
           Customized Cake Request
         </Link>
       </div>
 
-      {/* Profile form */}
+      {/* Profile form Container*/}
       <div className="flex items-center justify-center h-screen mt-10  ">
         <div className="p-8 bg-white rounded-lg shadow-md">
           <h1 className="text-2xl font-semibold text-gray-800">
             My Profile ({formData.role})
           </h1>
+          {/* Profile Form */}
           <form className="mt-4 space-y-4">
 
              {/* Name input */}
@@ -181,7 +186,7 @@ export default function Page() {
                 className="block text-sm font-medium text-gray-700"
               >
 
-Name
+    Name
               </label>
               <input
                 type="text"
@@ -201,7 +206,7 @@ Name
                 className="block text-sm font-medium text-gray-700"
               >
 
-Email address
+    Email address
               </label>
               <input
                 type="email"
@@ -221,7 +226,7 @@ Email address
                 className="block text-sm font-medium text-gray-700"
               >
 
-Address
+    Address
               </label>
               <input
                 type="text"
@@ -249,6 +254,7 @@ Address
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
               >
+                {/* Province Options */}
                 <option value="Western">Western</option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
@@ -281,7 +287,7 @@ Address
               />
             </div>
 
-{/* Password input */}
+{/* New Password input */}
             <div>
               <label
                 htmlFor="password"
@@ -317,6 +323,7 @@ Address
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
                 placeholder="Confirm Password"
               />
+              {/* Error Message for Confirm Password */}
               {errors.confirmPassword && (
                 <p className="text-red-500 text-xs mt-1">
                   {errors.confirmPassword}
@@ -348,3 +355,30 @@ Update Profile
               }}
               className="w-full py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
+
+Delete Profile
+            </button>
+
+            {/* Logout button */}
+            <button
+              type="button"
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to logout? You will be redirected to the home page."
+                  )
+                ) {
+                  localStorage.removeItem("token");
+                  window.location.href = "/";
+                }
+              }}
+              className="w-full py-2 px-4 mt-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            >
+              Logout
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
