@@ -213,6 +213,8 @@ Email address
                 placeholder="Email address"
               />
             </div>
+
+             {/* Address input */}
             <div>
               <label
                 htmlFor="address"
@@ -231,6 +233,8 @@ Address
                 placeholder="Address"
               />
             </div>
+
+             {/* Province select */}
             <div>
               <label
                 htmlFor="province"
@@ -255,4 +259,23 @@ Address
                 <option value="Southern">Southern</option>
                 <option value="Uva">Uva</option>
               </select>
+            </div>
+
+
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Phone
+              </label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
+                placeholder="Phone"
+              />
             </div>
