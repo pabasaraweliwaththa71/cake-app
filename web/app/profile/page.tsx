@@ -218,3 +218,41 @@ Email address
                 htmlFor="address"
                 className="block text-sm font-medium text-gray-700"
               >
+
+Address
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={formData.address}
+                onChange={handleInputChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
+                placeholder="Address"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="province"
+                className="block text-sm font-medium text-gray-700"
+              >
+                 Province
+              </label>
+              <select
+                id="province"
+                name="province"
+                value={formData.province}
+                onChange={handleInputChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
+              >
+                <option value="Western">Western</option>
+                <option value="Central">Central</option>
+                <option value="Eastern">Eastern</option>
+                <option value="North Central">North Central</option>
+                <option value="Northern">Northern</option>
+                <option value="North Western">North Western</option>
+                <option value="Sabaragamuwa">Sabaragamuwa</option>
+                <option value="Southern">Southern</option>
+                <option value="Uva">Uva</option>
+              </select>
+            </div>
