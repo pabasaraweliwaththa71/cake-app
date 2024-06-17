@@ -37,19 +37,57 @@ exports.createUser = async (req, res) => {
       message: "successful",
       user: savedPost,
     });
- 
+
     } catch (error) {
         // Send an error response if user creation fails
         res.status(500).json({ error: "Failed to create user" });
       }
     };
 
-
     // Function to log in a user
     exports.loginUser = async (req, res) => {
         try {
           const { email, password } = req.body;
 
+          // Check if the user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res
+        .status(400)
+        .json({ error: "Invalid email or email not found" });
+    }
+
+    
+    // Check if the password is correct
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return res.status(400).json({ error: "Invalid password" });
+    }
+
+    // Generate a jwt token
+    // send a jwt token
+    const token = jwt.sign(
+      {
+        id: user._id,
+        name: user.name,
+        address: user.address,
+        province: user.province,
+        phone: user.phone,
+        email: user.email,
+        role: user.role,
+      },
+      "secret_zee_cake"
+    );
+
+    if (!token) {
+      return res.status(500).json({ error: "Failed to create token" });
+    }
+
+    // Send a success response with the token
+    res.json({
+      message: "successful",
+      token,
+    });
         } catch (error) {
             // Send an error response if login fails
             res.status(500).json({ error: "Failed to login" });
@@ -65,7 +103,7 @@ exports.createUser = async (req, res) => {
               res.json(users);
             } catch (error) {
 
-    
+         // Send an error response if fetching users fails
               res.status(500).json({ error: "Failed to fetch users" });
             }
           };
