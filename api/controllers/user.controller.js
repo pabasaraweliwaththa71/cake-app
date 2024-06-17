@@ -130,18 +130,47 @@ exports.createUser = async (req, res) => {
           exports.updateUser = async (req, res) => {
             try {
 
+                 // only update the fields that are passed in the request body
+    // and if those are not empty strings
+    const updatedFields = {};
+    if (req.body.name && req.body.name !== "") {
+      updatedFields.name = req.body.name;
+    }
+    if (req.body.email && req.body.email !== "") {
+      updatedFields.email = req.body.email;
+    }
+    if (req.body.password && req.body.password !== "") {
+      const salt = await bcrypt.genSalt(10);
+      updatedFields.password = await bcrypt.hash(req.body.password, salt);
+    }
+    if (req.body.role && req.body.role !== "") {
+      updatedFields.role = req.body.role;
+    }
+    if (req.body.address && req.body.address !== "") {
+      updatedFields.address = req.body.address;
+    }
+    if (req.body.phone && req.body.phone !== "") {
+      updatedFields.phone = req.body.phone;
+    }
+    if (req.body.province && req.body.province !== "") {
+      updatedFields.province = req.body.province;
+    }
+
+    // Find user by ID and update the specified fields
                 const updatedUser = await User.findByIdAndUpdate(
                     req.params.userId,
                     { $set: updatedFields },
                     { new: true }
                   );
               
+                  // Send a success response with the updated user and token
                   res.status(200).json({
                     message: "successful",
                     token,
                     updatedUser,
                   });
                 } catch (error) {
+                    // Log the error and send an error response if updating user fails
                   console.log(error);
                   res.status(500).json({ error: "Failed to update user" });
                 }
