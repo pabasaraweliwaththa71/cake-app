@@ -126,3 +126,24 @@ exports.createUser = async (req, res) => {
               res.status(500).json({ error: "Failed to fetch user" });
             }
           };
+
+          exports.updateUser = async (req, res) => {
+            try {
+
+                const updatedUser = await User.findByIdAndUpdate(
+                    req.params.userId,
+                    { $set: updatedFields },
+                    { new: true }
+                  );
+              
+                  res.status(200).json({
+                    message: "successful",
+                    token,
+                    updatedUser,
+                  });
+                } catch (error) {
+                  console.log(error);
+                  res.status(500).json({ error: "Failed to update user" });
+                }
+              };
+              
