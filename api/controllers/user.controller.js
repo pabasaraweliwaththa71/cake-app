@@ -43,3 +43,29 @@ exports.createUser = async (req, res) => {
         res.status(500).json({ error: "Failed to create user" });
       }
     };
+
+
+    // Function to log in a user
+    exports.loginUser = async (req, res) => {
+        try {
+          const { email, password } = req.body;
+
+        } catch (error) {
+            // Send an error response if login fails
+            res.status(500).json({ error: "Failed to login" });
+          }
+        };
+
+        // Function to get all users
+        exports.getAllUsers = async (req, res) => {
+            try {
+                // Retrieve all users from the database
+              const users = await User.find();
+              // Send a success response with the users
+              res.json(users);
+            } catch (error) {
+
+    
+              res.status(500).json({ error: "Failed to fetch users" });
+            }
+          };
