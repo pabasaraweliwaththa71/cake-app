@@ -162,6 +162,24 @@ exports.createUser = async (req, res) => {
                     { $set: updatedFields },
                     { new: true }
                   );
+
+                  // send a jwt token
+    const token = jwt.sign(
+        {
+          id: updatedUser._id,
+          name: updatedUser.name,
+          address: updatedUser.address,
+          province: updatedUser.province,
+          phone: updatedUser.phone,
+          email: updatedUser.email,
+          role: updatedUser.role,
+        },
+        "secret_zee_cake"
+      );
+  
+      if (!token) {
+        return res.status(500).json({ error: "Failed to create token" });
+      }
               
                   // Send a success response with the updated user and token
                   res.status(200).json({
