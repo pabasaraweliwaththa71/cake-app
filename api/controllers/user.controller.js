@@ -107,3 +107,22 @@ exports.createUser = async (req, res) => {
               res.status(500).json({ error: "Failed to fetch users" });
             }
           };
+
+          // Function to get a user by ID
+          exports.getUserById = async (req, res) => {
+            try {
+                // Find user by ID
+              const user = await User.findById(req.params.userId);
+              if (!user) {
+                return res.status(404).json({ error: "User not found" });
+              }
+          
+              // remove the password from the user object before sending it
+              user.password = undefined;
+              // Send a success response with the user
+              res.json(user);
+            } catch (error) {
+                 // Send an error response if fetching user fails
+              res.status(500).json({ error: "Failed to fetch user" });
+            }
+          };
