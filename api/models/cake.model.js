@@ -19,6 +19,14 @@ const cakeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  calories: {
+    type: Number,
+    required: true,
+  },
+  weight: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Cake = mongoose.model("Cake", cakeSchema);
