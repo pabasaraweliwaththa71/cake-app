@@ -56,4 +56,27 @@ function Sidebar() {
       </div>
     );
   }
+
+  // Layout component to wrap admin pages
+  export default function Layout({ children }: { children: React.ReactNode }) {
+    const userData = useUserData(); // Fetch user data using custom hook
+  
+    // Check if the user is an admin, if not, show unauthorized message
+    if (userData.role !== "admin") {
+      return (
+        <div className="text-2xl font-semibold text-red-500 h-screen flex items-center justify-center">
+          Unauthorized User
+        </div>
+      );
+    }
+
+    // Render the admin layout with sidebar and main content
+    return (
+      <div className="flex px-16 pt-10">
+        <Sidebar />
+        <div className="flex-1 px-8 min-h-screen">{children}</div>
+      </div>
+    );
+  }
+  
   
