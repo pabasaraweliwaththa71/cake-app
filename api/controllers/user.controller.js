@@ -194,3 +194,15 @@ exports.createUser = async (req, res) => {
                 }
               };
               
+              // Function to delete a user
+              exports.deleteUser = async (req, res) => {
+                try {
+                    // Find user by ID and delete it
+                  const deletedUser = await User.findByIdAndDelete(req.params.userId);
+                 // Send a success response with the deleted user
+                  res.json(deletedUser);
+                } catch (error) {
+                    // Send an error response if deleting user fails
+                  res.status(500).json({ error: "Failed to delete user" });
+                }
+              };
