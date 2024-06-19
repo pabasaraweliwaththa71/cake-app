@@ -363,12 +363,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-      <PaymentModal
-        isOpen={isPaymentModalOpen}
-        onClose={() => setPaymentModalOpen(false)}
-        onPaymentSuccess={handleCheckout}
-        totalPrice={totalPrice}
-      />
     </div>
   );
 }
