@@ -39,3 +39,23 @@ export default function UserCustomCakeRequests() {
         );
       }
     
+      // Function to handle canceling a custom cake request
+      const handleCancelRequest = async (id: string) => {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/v1/api/customCakes/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
+    
+          if (response.ok) {
+            alert("Customized cake request canceled successfully");
+            fetchUserRequests(); // Refresh the requests list
+          } else {
+            console.error("Failed to cancel customized cake request");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      };
