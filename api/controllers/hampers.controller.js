@@ -52,16 +52,3 @@ exports.updateHamper = async (req, res) => {
     res.status(500).json({ error: "Failed to update hamper" });
   }
 };
-
-exports.deleteHamper = async (req, res) => {
-  try {
-    const hamper = await GiftHamper.findByIdAndDelete(req.params.id);
-    if (!hamper) {
-      return res.status(404).json({ error: "Hamper not found" });
-    }
-    res.json(hamper);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Failed to delete hamper" });
-  }
-};
