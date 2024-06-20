@@ -59,3 +59,22 @@ export default function UserCustomCakeRequests() {
           console.error("Error:", error);
         }
       };
+
+      // Render a message if there are no requests
+      if (requests.length === 0) {
+        return (
+          <div className="text-2xl font-semibold h-screen flex items-center justify-center">
+            You have not made any customized cake requests yet.
+          </div>
+        );
+      }
+
+      return (
+        <div className="p-8   min-h-screen">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-8">
+            My Customized Cake Requests
+          </h1>
+
+          </div>
+  );
+}
