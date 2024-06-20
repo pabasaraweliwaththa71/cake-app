@@ -147,6 +147,19 @@ export default function UserCustomCakeRequests() {
               </div>
             </div>
 
+            <div className="border-t border-gray-200 mt-4"></div>
+            <p className="text-gray-700 mt-2">
+              Delivery Date: {new Date(request.deliveryDate).toDateString()}
+            </p>
+            <p className="text-gray-700 mt-2">Price: LKR {request.price}</p>
+
+            <div className="border-t border-gray-200 mt-4">
+              {request.accepted && (
+                <p className="text-green-600 mt-2">Order Accepted 😄</p>
+              )}
+            </div>
+            <p className="text-gray-700 mt-2">Status: {request.status}</p>
+
             </div>
           </div>
   );
