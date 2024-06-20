@@ -75,6 +75,31 @@ export default function UserCustomCakeRequests() {
             My Customized Cake Requests
           </h1>
 
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {requests.map((request: any) => (
+          <div key={request._id} className="p-6 bg-white rounded-lg shadow-md">
+            <img
+              className="w-full h-48 object-cover rounded-md mb-4"
+              src={request.image}
+              alt={request.flavor}
+            />
+            <h2 className="text-xl font-semibold text-gray-800">
+              {request.flavor}
+            </h2>
+            <div className="border-t border-gray-200 mt-4"></div>
+            <p className="text-gray-700 mt-2">Topping: {request.topping}</p>
+            <p className="text-gray-700 mt-2">Topper: {request.topper}</p>
+            <p className="text-gray-700 mt-2">
+              Decoration: {request.decoration}
+            </p>
+            <p className="text-gray-700 mt-2">Weight: {request.weight} kg</p>
+            <p className="text-gray-700 mt-2">Message: {request.message}</p>
+            <p className="text-gray-700 mt-2">
+              Extra Details: {request.extraDetails}
+            </p>
+
+
+            </div>
           </div>
   );
 }
