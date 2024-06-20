@@ -29,20 +29,6 @@ exports.getAllHampers = async (req, res) => {
   }
 };
 
-exports.getHamperById = async (req, res) => {
-  try {
-    const hamper = await GiftHamper.findById(req.params.id);
-
-    if (!hamper) {
-      return res.status(404).json({ error: "Hamper not found" });
-    }
-    res.json(hamper);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Failed to get hamper" });
-  }
-};
-
 exports.updateHamper = async (req, res) => {
   try {
     const { name, description, price, image, type } = req.body;
