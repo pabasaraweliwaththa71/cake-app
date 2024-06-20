@@ -69,6 +69,7 @@ export default function UserCustomCakeRequests() {
         );
       }
 
+      // Render the list of custom cake requests
       return (
         <div className="p-8   min-h-screen">
           <h1 className="text-2xl font-semibold text-gray-800 mb-8">
@@ -98,6 +99,53 @@ export default function UserCustomCakeRequests() {
               Extra Details: {request.extraDetails}
             </p>
 
+            <div className="flex space-x-4 mt-4">
+              <div className="flex items-center">
+                <input
+                  id="glutenFree"
+                  name="glutenFree"
+                  type="checkbox"
+                  checked={request.glutenFree}
+                  className="h-4 w-4 text-orange-700 border-gray-300 rounded focus:ring-orange-400"
+                />
+                <label
+                  htmlFor="glutenFree"
+                  className="ml-2 block text-sm text-gray-900"
+                >
+                  Gluten Free
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="vegan"
+                  name="vegan"
+                  type="checkbox"
+                  checked={request.vegan}
+                  className="h-4 w-4 text-orange-700 border-gray-300 rounded focus:ring-orange-400"
+                />
+                <label
+                  htmlFor="vegan"
+                  className="ml-2 block text-sm text-gray-900"
+                >
+                  Vegan
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="nutFree"
+                  name="nutFree"
+                  type="checkbox"
+                  checked={request.nutFree}
+                  className="h-4 w-4 text-orange-700 border-gray-300 rounded focus:ring-orange-400"
+                />
+                <label
+                  htmlFor="nutFree"
+                  className="ml-2 block text-sm text-gray-900"
+                >
+                  Nut Free
+                </label>
+              </div>
+            </div>
 
             </div>
           </div>
