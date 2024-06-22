@@ -22,11 +22,12 @@ export default function UserOrdersPage() {
       }
     };
 
-
+// useEffect to fetch user orders when the component mounts or user data changes
     useEffect(() => {
         fetchUserOrders();
       }, [user]);
     
+      // Render a message if the user is not logged in
       if (!user) {
         return (
           <div className="text-2xl font-semibold h-screen flex items-center justify-center">
@@ -35,11 +36,32 @@ export default function UserOrdersPage() {
         );
       }
 
+      // Function to handle deleting an order
       const deleteOrder = async (orderId: string) => {
         try {
-
+            const response = await fetch(
+                `http://localhost:5000/v1/api/orders/${orderId}`,
+                {
+                  method: "DELETE",
+                }
+              );
+        
+              if (response.ok) {
+                alert("Order deleted successfully");
+                fetchUserOrders();// Refresh the orders list
+              } else {
+                console.error("Failed to delete order");
+              }
         } catch (error) {
             console.error("Error:", error);
           }
         };
+
+
+
+
+
+
+
+
 }
