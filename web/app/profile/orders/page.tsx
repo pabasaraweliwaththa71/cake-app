@@ -23,8 +23,23 @@ export default function UserOrdersPage() {
     };
 
 
+    useEffect(() => {
+        fetchUserOrders();
+      }, [user]);
+    
+      if (!user) {
+        return (
+          <div className="text-2xl font-semibold h-screen flex items-center justify-center">
+            Please log in to view your orders.
+          </div>
+        );
+      }
 
+      const deleteOrder = async (orderId: string) => {
+        try {
 
-
-
+        } catch (error) {
+            console.error("Error:", error);
+          }
+        };
 }
