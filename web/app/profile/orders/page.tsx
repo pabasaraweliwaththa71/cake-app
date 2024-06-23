@@ -57,11 +57,27 @@ export default function UserOrdersPage() {
           }
         };
 
+        return (
+            <div className="p-8   min-h-screen">
+              <h1 className="text-2xl font-semibold text-gray-800 mb-6">My Orders</h1>
+              <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 border-b-2">Items</th>
+                    <th className="py-2 px-4 text-sm border-b-2">Q.</th>
+                    <th className="py-2 px-4 text-sm border-b-2">Price(Rs)</th>
+                    <th className="py-2 px-4 text-sm border-b-2">Date</th>
+                    <th className="py-2 px-4 text-sm border-b-2">Address</th>
+                    <th className="py-2 px-4 text-sm border-b-2">Delivery</th>
+                    <th className="py-2 px-4 border-b-2">Status</th>
+                    <th className="py-2 px-4 border-b-2">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
 
 
 
 
 
-
-
+            );
 }
