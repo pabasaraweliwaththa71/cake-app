@@ -14,17 +14,19 @@ export default function UserOrdersPage() {
     const fetchUserOrders = async () => {
         // Check if user data is available
       if (user) {
+         // Make a GET request to fetch orders of the current user
         fetch(`http://localhost:5000/v1/api/orders/user/${user.id}`)
           .then((response) => response.json())
           // Update state with fetched data
           .then((data) => setOrders(data))
-          .catch((error) => console.error("Error fetching user orders:", error));
+          .catch((error) => console.error("Error fetching user orders:", error)); // Log any errors
       }
     };
 
 // useEffect to fetch user orders when the component mounts or user data changes
     useEffect(() => {
-        fetchUserOrders();
+        // Fetch orders when the component mounts or when user changes
+        fetchUserOrders(); // Dependency array ensures this runs when `user` changes
       }, [user]);
     
       // Render a message if the user is not logged in
@@ -39,6 +41,7 @@ export default function UserOrdersPage() {
       // Function to handle deleting an order
       const deleteOrder = async (orderId: string) => {
         try {
+            // Make a DELETE request to delete the specified order
             const response = await fetch(
                 `http://localhost:5000/v1/api/orders/${orderId}`,
                 {
@@ -50,13 +53,14 @@ export default function UserOrdersPage() {
                 alert("Order deleted successfully");
                 fetchUserOrders();// Refresh the orders list
               } else {
-                console.error("Failed to delete order");
+                console.error("Failed to delete order"); // Log error if deletion fails
               }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error:", error); // Log any errors that occur during the fetch
           }
         };
 
+        // Render the list of user's orders
         return (
             <div className="p-8   min-h-screen">
               <h1 className="text-2xl font-semibold text-gray-800 mb-6">My Orders</h1>
@@ -75,7 +79,17 @@ export default function UserOrdersPage() {
                 </thead>
                 <tbody>
 
-
+                {orders.map((order: any) => (
+            <tr key={order._id}>
+              <td className="py-2 px-4 border-b">
+                {order.cakes.map((cake: any) => (
+                  <div
+                    className="bg-slate-200 p-1 m-1 rounded-md truncate"
+                    key={cake._id}
+                  >
+                    {cake.name}
+                  </div>
+                ))}
 
 
 
