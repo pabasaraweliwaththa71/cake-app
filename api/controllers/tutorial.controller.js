@@ -40,6 +40,22 @@ exports.getTutorialById = async (req, res) => {
     res.status(500).json({ error: "Failed to get tutorial" });
   }
 };
+exports.updateTutorial = async (req, res) => {
+  try {
+    const { title, description, published, url } = req.body;
+    const tutorial = await Tutorial.findByIdAndUpdate(
+      req.params.id,
+      { title, description, published, url },
+      { new: true }
+    );
+    if (!tutorial) {
+      return res.status(404).json({ error: "Tutorial not found" });
+    }
+    res.json(tutorial);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update tutorial" });
+  }
+};
 
 
 exports.deleteTutorial = async (req, res) => {
