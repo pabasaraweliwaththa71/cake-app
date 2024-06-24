@@ -87,7 +87,7 @@ export default function UserOrdersPage() {
                     className="bg-slate-200 p-1 m-1 rounded-md truncate"
                     key={cake._id}
                   >
-                    {cake.name}
+                    {cake.name} {/* Display cake name */}
                   </div>
                 ))}
 
@@ -96,17 +96,17 @@ export default function UserOrdersPage() {
                     className="bg-slate-200 p-1 m-1 rounded-md truncate"
                     key={giftHampers._id}
                   >
-                    {giftHampers.name}
+                    {giftHampers.name} {/* Display gift hamper name */}
                   </div>
                 ))}
 
 </td>
-              <td className="py-2 px-4 border-b">{order.quantity}</td>
-              <td className="py-2 px-4 border-b">LKR {order.price}</td>
+              <td className="py-2 px-4 border-b">{order.quantity}</td> {/* Display order quantity */}
+              <td className="py-2 px-4 border-b">LKR {order.price}</td> {/* Display order price */}
               <td className="py-2 px-4 border-b truncate">
                 {order.createdAt && (
                   <time dateTime={order.createdAt}>
-                    {new Date(order.createdAt).toLocaleDateString()}
+                    {new Date(order.createdAt).toLocaleDateString()} {/* Display order creation date */}
                   </time>
                 )}
               </td>
@@ -120,6 +120,30 @@ export default function UserOrdersPage() {
                 />
                 ...
               </td>
+
+              <td className="py-2 px-4 border-b">{order.deliveryOption}</td> {/* Display delivery option */}
+              <td className="py-2 px-4 border-b">{order.status}</td> {/* Display order status */}
+              <td className="py-2 px-4 flex justify-center items-center">
+                <button
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to delete this order?" // Confirm order deletion
+                      )
+                    ) {
+                      deleteOrder(order._id); // Handle order deletion
+                    }
+                  }}
+                  className="py-1 px-3  bg-red-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  Delete Order {/* Button to delete order */}
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
 
             );
 }
