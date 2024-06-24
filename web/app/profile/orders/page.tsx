@@ -91,7 +91,25 @@ export default function UserOrdersPage() {
                   </div>
                 ))}
 
+{order.giftHampers.map((giftHampers: any) => (
+                  <div
+                    className="bg-slate-200 p-1 m-1 rounded-md truncate"
+                    key={giftHampers._id}
+                  >
+                    {giftHampers.name}
+                  </div>
+                ))}
 
-
+</td>
+              <td className="py-2 px-4 border-b">{order.quantity}</td>
+              <td className="py-2 px-4 border-b">LKR {order.price}</td>
+              <td className="py-2 px-4 border-b truncate">
+                {order.createdAt && (
+                  <time dateTime={order.createdAt}>
+                    {new Date(order.createdAt).toLocaleDateString()}
+                  </time>
+                )}
+              </td>
+              
             );
 }
