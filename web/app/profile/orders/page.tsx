@@ -110,6 +110,16 @@ export default function UserOrdersPage() {
                   </time>
                 )}
               </td>
-              
+
+              <td className="py-2 px-4 text-[12px] border-b truncate">
+                <input
+                  type="text"
+                  value={order.address + ", " + order.province}
+                  className="w-24 py-1 px-2 rounded-md sm:text-sm"
+                  disabled
+                />
+                ...
+              </td>
+
             );
 }
