@@ -1,77 +1,92 @@
-const Tutorial = require("../models/tutorial.model");
+const { Workshop, Registration } = require("../models/workshop.model");
 
-exports.createTutorial = async (req, res) => {
+exports.createWorkshop = async (req, res) => {
   try {
-    const { title, description, published, url } = req.body;
+    const { title, description, date, link, price, instructor, image } =
+      req.body;
 
-    const tutorial = new Tutorial({
+    const workshop = new Workshop({
       title,
       description,
-      published,
-      url,
+      date,
+      link,
+      price,
+      instructor,
+      image,
     });
-    const savedTutorial = await tutorial.save();
+    const savedWorkshop = await workshop.save();
 
-    res.status(201).json(savedTutorial);
+    res.status(201).json(savedWorkshop);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Failed to create tutorial" });
+    res.status(500).json({ error: "Failed to create workshop" });
   }
 };
 
-exports.getAllTutorials = async (req, res) => {
+exports.getAllWorkshops = async (req, res) => {
   try {
-    const tutorials = await Tutorial.find();
-    res.json(tutorials);
+    const workshops = await Workshop.find();
+    res.json(workshops);
   } catch (error) {
-    res.status(500).json({ error: "Failed to get tutorials" });
+    res.status(500).json({ error: "Failed to get workshops" });
   }
 };
 
-exports.getTutorialById = async (req, res) => {
+exports.getWorkshopById = async (req, res) => {
   try {
-    const tutorial = await Tutorial.findById(req.params.id);
+    const workshop = await Workshop.findById(req.params.workshopId);
 
-    if (!tutorial) {
-      return res.status(404).json({ error: "Tutorial not found" });
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
     }
-    res.json(tutorial);
+    res.json(workshop);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Failed to get tutorial" });
+    res.status(500).json({ error: "Failed to get workshop" });
   }
 };
 
-exports.updateTutorial = async (req, res) => {
+exports.updateWorkshop = async (req, res) => {
   try {
-    const { title, description, published, url } = req.body;
-    const tutorial = await Tutorial.findByIdAndUpdate(
-      req.params.id,
-      { title, description, published, url },
+    const { title, description, date, link, price, instructor, image } =
+      req.body;
+    const workshop = await Workshop.findByIdAndUpdate(
+      req.params.workshopId,
+      { title, description, date, link, price, instructor, image },
       { new: true }
     );
-    if (!tutorial) {
-      return res.status(404).json({ error: "Tutorial not found" });
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
     }
-    res.json(tutorial);
+    res.json(workshop);
   } catch (error) {
-    res.status(500).json({ error: "Failed to update tutorial" });
+    res.status(500).json({ error: "Failed to update workshop" });
   }
 };
 
-exports.deleteTutorial = async (req, res) => {
+exports.deleteWorkshop = async (req, res) => {
   try {
-    const { id } = req.params;
-
-    const tutorial = await Tutorial.findById(id);
-
-    if (!tutorial) {
-      return res.status(404).json({ error: "Tutorial not found" });
+    const workshop = await Workshop.findByIdAndDelete(req.params.workshopId);
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
     }
-
-    await Tutorial.findByIdAndDelete(id);
-    res.json({ message: "Tutorial deleted successfully" });
+    res.json({ message: "Workshop deleted successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Failed to delete tutorial" });
+    res.status(500).json({ error: "Failed to delete workshop" });
+  }
+};
+
+exports.registerWorkshop = async (req, res) => {
+  try {
+    const { user, workshop, attendees } = req.body;
+    const registration = new Registration({
+      user,
+      workshop,
+      attendees: Number(attendees),
+    });
+    const savedRegistration = await registration.save();
+    res.status(201).json(savedRegistration);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to register for workshop" });
   }
 };
