@@ -27,19 +27,7 @@ exports.getAllTutorials = async (req, res) => {
   }
 };
 
-exports.getTutorialById = async (req, res) => {
-  try {
-    const tutorial = await Tutorial.findById(req.params.id);
 
-    if (!tutorial) {
-      return res.status(404).json({ error: "Tutorial not found" });
-    }
-    res.json(tutorial);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Failed to get tutorial" });
-  }
-};
 exports.updateTutorial = async (req, res) => {
   try {
     const { title, description, published, url } = req.body;
