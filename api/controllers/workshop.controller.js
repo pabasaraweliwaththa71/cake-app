@@ -73,3 +73,18 @@ exports.deleteWorkshop = async (req, res) => {
     res.status(500).json({ error: "Failed to delete workshop" });
   }
 };
+
+exports.registerWorkshop = async (req, res) => {
+  try {
+    const { user, workshop, attendees } = req.body;
+    const registration = new Registration({
+      user,
+      workshop,
+      attendees: Number(attendees),
+    });
+    const savedRegistration = await registration.save();
+    res.status(201).json(savedRegistration);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to register for workshop" });
+  }
+};
