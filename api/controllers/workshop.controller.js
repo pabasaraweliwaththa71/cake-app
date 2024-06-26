@@ -43,3 +43,21 @@ exports.getWorkshopById = async (req, res) => {
     res.status(500).json({ error: "Failed to get workshop" });
   }
 };
+
+exports.updateWorkshop = async (req, res) => {
+  try {
+    const { title, description, date, link, price, instructor, image } =
+      req.body;
+    const workshop = await Workshop.findByIdAndUpdate(
+      req.params.workshopId,
+      { title, description, date, link, price, instructor, image },
+      { new: true }
+    );
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
+    }
+    res.json(workshop);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update workshop" });
+  }
+};
