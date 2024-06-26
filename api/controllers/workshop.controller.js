@@ -61,3 +61,15 @@ exports.updateWorkshop = async (req, res) => {
     res.status(500).json({ error: "Failed to update workshop" });
   }
 };
+
+exports.deleteWorkshop = async (req, res) => {
+  try {
+    const workshop = await Workshop.findByIdAndDelete(req.params.workshopId);
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
+    }
+    res.json({ message: "Workshop deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete workshop" });
+  }
+};
