@@ -21,3 +21,25 @@ exports.createWorkshop = async (req, res) => {
     res.status(500).json({ error: "Failed to create workshop" });
   }
 };
+exports.getAllWorkshops = async (req, res) => {
+  try {
+    const workshops = await Workshop.find();
+    res.json(workshops);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to get workshops" });
+  }
+};
+
+exports.getWorkshopById = async (req, res) => {
+  try {
+    const workshop = await Workshop.findById(req.params.workshopId);
+
+    if (!workshop) {
+      return res.status(404).json({ error: "Workshop not found" });
+    }
+    res.json(workshop);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Failed to get workshop" });
+  }
+};
