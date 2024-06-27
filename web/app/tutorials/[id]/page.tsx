@@ -27,6 +27,7 @@ export default function Page({ params }: { params: { id: string } }) {
         });
     }
   }, [params.id]);
+
   const handleDelete = () => {
     fetch(`http://localhost:5000/v1/api/tutorials/${params.id}`, {
       method: "DELETE",
@@ -55,6 +56,7 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!tutorial) {
     return <div>Tutorial not found</div>;
   }
+
   return (
     <div className="p-8   min-h-screen">
       <div className="flex justify-between items-center ">
@@ -83,4 +85,27 @@ export default function Page({ params }: { params: { id: string } }) {
                     handleDelete;
                   }
                 }}
+                className="py-2 px-4 bg-red-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                Delete
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4 mt-5">
+        {tutorial.title}
+      </h1>
+      <p className="text-gray-700 mb-4">{tutorial.description}</p>
+      <div className="mb-4 aspect-video flex justify-start mt-5">
+        <ReactPlayer
+          url={tutorial.url}
+          width="60%"
+          height="60%"
+          controls={true}
+        />
+      </div>
+    </div>
+  );
 }
