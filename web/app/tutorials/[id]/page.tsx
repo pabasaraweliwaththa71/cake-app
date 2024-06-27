@@ -27,6 +27,26 @@ export default function Page({ params }: { params: { id: string } }) {
         });
     }
   }, [params.id]);
+  const handleDelete = () => {
+    fetch(`http://localhost:5000/v1/api/tutorials/${params.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Tutorial deleted successfully");
+          alert("Tutorial deleted successfully");
+          // Redirect
+          window.location.href = "/tutorials";
+        } else {
+          alert("Failed to delete the Tutorial");
+          console.error("Failed to delete the Tutorial");
+        }
+      })
+      .catch((error) => console.error("Error deleting Tutorial:", error));
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -35,7 +55,4 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!tutorial) {
     return <div>Tutorial not found</div>;
   }
-
- 
-
 }
