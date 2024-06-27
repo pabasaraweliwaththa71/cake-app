@@ -55,4 +55,32 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!tutorial) {
     return <div>Tutorial not found</div>;
   }
+  return (
+    <div className="p-8   min-h-screen">
+      <div className="flex justify-between items-center ">
+        <Link
+          href="/tutorials"
+          className="text-orange-700 hover:text-indigo-800"
+        >
+          Back to Tutorials
+        </Link>
+        {userData.role === "admin" && (
+          <>
+            <div className="flex justify-end gap-1 items-center">
+              <Link
+                href={`/tutorials/edit/${tutorial._id}`}
+                className="py-2 px-4 bg-yellow-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              >
+                Edit
+              </Link>
+              <button
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      "Are you sure you want to delete this tutorial?"
+                    )
+                  ) {
+                    handleDelete;
+                  }
+                }}
 }
