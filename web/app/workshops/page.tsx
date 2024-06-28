@@ -25,4 +25,17 @@ const WorkshopList = () => {
               src={workshop.image}
               alt={workshop.title}
             />
+            <h2 className="text-xl font-semibold text-gray-800">
+              {workshop.title}
+            </h2>
+            <p className="text-gray-700 mt-2">{workshop.description}</p>
+            <p className="text-gray-700 mt-2">
+              Date: {new Date(workshop.date).toLocaleDateString()}
+            </p>
+            <p className="text-gray-700 mt-2">Price: LKR {workshop.price}</p>
+            <div className="mt-4 flex justify-start w-full gap-4">
+              <Link
+                href={`/workshops/${workshop._id}`}
+                className="py-2 px-4  bg-orange-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              ></Link>
 export default WorkshopList;
