@@ -38,4 +38,19 @@ const WorkshopList = () => {
                 href={`/workshops/${workshop._id}`}
                 className="py-2 px-4  bg-orange-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
               ></Link>
+              View Details
+              </Link>
+              <Link
+                href={workshop.link}
+                className="py-2 px-4 bg-green-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              >
+                Join
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default WorkshopList;
