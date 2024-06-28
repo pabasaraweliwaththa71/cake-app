@@ -12,6 +12,7 @@ const WorkshopList = () => {
       .then((data) => setWorkshops(data))
       .catch((error) => console.error("Error fetching workshops:", error));
   }, []);
+
   return (
     <div className="flex flex-col items-center justify-center   py-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-8">
@@ -37,8 +38,8 @@ const WorkshopList = () => {
               <Link
                 href={`/workshops/${workshop._id}`}
                 className="py-2 px-4  bg-orange-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-              ></Link>
-              View Details
+              >
+                View Details
               </Link>
               <Link
                 href={workshop.link}
@@ -53,4 +54,5 @@ const WorkshopList = () => {
     </div>
   );
 };
+
 export default WorkshopList;
