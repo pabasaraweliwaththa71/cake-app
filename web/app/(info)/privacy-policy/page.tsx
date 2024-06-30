@@ -35,5 +35,16 @@ export default function PrivacyPolicy() {
       any changes by posting the new policy on our website and updating the
       effective date.
     </p>
+
+    <h2 className="text-2xl font-bold mt-8 mb-4">Contact Us</h2>
+    <p className="text-lg mb-4">
+      If you have any questions or concerns about this Privacy Policy, please
+      contact us at:
+    </p>
+    <p className="text-lg">
+      Email: support@zeecakes.com <br />
+      Phone: (123) 456-7890 <br />
+      Address: SLIIT, Malabe, Sri Lanka
+    </p>
   </div>;
 }
