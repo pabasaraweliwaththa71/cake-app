@@ -15,3 +15,22 @@ export default function CreateTutorialPage() {
     const youtubeRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
     return youtubeRegex.test(url);
   };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Validate the URL
+    if (!validateUrl(url)) {
+      setUrlError("Please enter a valid YouTube URL.");
+      setLoading(false);
+      return;
+    } else {
+      setUrlError("");
+    }
+
+    const tutorialData = {
+      title,
+      description,
+      url,
+      published,
+    };
