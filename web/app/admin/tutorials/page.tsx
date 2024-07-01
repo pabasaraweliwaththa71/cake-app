@@ -34,7 +34,7 @@ export default function CreateTutorialPage() {
       url,
       published,
     };
-try {
+    try {
       const response = await fetch("http://localhost:5000/v1/api/tutorials", {
         method: "POST",
         headers: {
@@ -65,7 +65,7 @@ try {
       setLoading(false);
     }
   };
-return (
+  return (
     <div className=" flex items-center justify-center">
       <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
@@ -97,3 +97,46 @@ return (
               required
             />
           </div>
+          <div>
+            <label htmlFor="url" className="block text-gray-700">
+              YouTube URL
+            </label>
+            <input
+              id="url"
+              type="url"
+              className="w-full p-2 border border-gray-300 rounded-md"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              required
+            />
+            {urlError && (
+              <div className="text-red-600 text-xs mt-1">{urlError}</div>
+            )}
+          </div>
+          <div className="flex items-center">
+            <input
+              id="published"
+              type="checkbox"
+              className="h-4 w-4 text-orange-700 focus:ring-orange-400 border-gray-300 rounded"
+              checked={published}
+              onChange={(e) => setPublished(e.target.checked)}
+            />
+            <label htmlFor="published" className="ml-2 block text-gray-700">
+              Published
+            </label>
+          </div>
+          {error && <div className="text-red-600">{error}</div>}
+          <div>
+            <button
+              type="submit"
+              className="w-full py-2 px-4 bg-orange-500 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
+              disabled={loading}
+            >
+              {loading ? "Creating..." : "Create Tutorial"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
