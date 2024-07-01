@@ -34,3 +34,34 @@ export default function CreateTutorialPage() {
       url,
       published,
     };
+try {
+      const response = await fetch("http://localhost:5000/v1/api/tutorials", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(tutorialData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert("Tutorial created successfully");
+        console.log("Tutorial created:", data);
+        // Clear the form
+        setTitle("");
+        setDescription("");
+        setUrl("");
+        setPublished(true);
+        setError("");
+
+        // Redirect
+        window.location.href = "/admin";
+      } else {
+        setError("Failed to create tutorial. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
