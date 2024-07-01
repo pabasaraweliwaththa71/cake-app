@@ -15,6 +15,7 @@ export default function CreateTutorialPage() {
     const youtubeRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
     return youtubeRegex.test(url);
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -34,6 +35,7 @@ export default function CreateTutorialPage() {
       url,
       published,
     };
+
     try {
       const response = await fetch("http://localhost:5000/v1/api/tutorials", {
         method: "POST",
@@ -65,6 +67,7 @@ export default function CreateTutorialPage() {
       setLoading(false);
     }
   };
+
   return (
     <div className=" flex items-center justify-center">
       <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-md">
