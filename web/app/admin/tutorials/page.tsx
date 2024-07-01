@@ -65,3 +65,35 @@ try {
       setLoading(false);
     }
   };
+return (
+    <div className=" flex items-center justify-center">
+      <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-2xl font-semibold text-gray-800 mb-4">
+          Create Tutorial
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="title" className="block text-gray-700">
+              Title
+            </label>
+            <input
+              id="title"
+              type="text"
+              className="w-full p-2 border border-gray-300 rounded-md"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="description" className="block text-gray-700">
+              Description
+            </label>
+            <textarea
+              id="description"
+              className="w-full p-2 border border-gray-300 rounded-md"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
