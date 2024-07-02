@@ -52,3 +52,20 @@ function Sidebar() {
      </div>
    );
 }
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const userData = useUserData();
+
+  if (userData.role !== "admin") {
+    return (
+      <div className="text-2xl font-semibold text-red-500 h-screen flex items-center justify-center">
+        Unauthorized User
+      </div>
+    );
+  }
+  return (
+    <div className="flex px-16 pt-10">
+      <Sidebar />
+      <div className="flex-1 px-8 min-h-screen">{children}</div>
+    </div>
+  );
+}
