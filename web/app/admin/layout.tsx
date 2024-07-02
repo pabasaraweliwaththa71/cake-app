@@ -3,3 +3,5 @@
 import useUserData from "@/hook/useUser";
 import Link from "next/link";
 
+function Sidebar() {
+}
