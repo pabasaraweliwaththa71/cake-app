@@ -18,3 +18,6 @@ const tutorialchema = new mongoose.Schema({
     required: true,
   },
 });
+const Tutorial = mongoose.model("Tutorial", tutorialchema);
+
+module.exports = Tutorial;
