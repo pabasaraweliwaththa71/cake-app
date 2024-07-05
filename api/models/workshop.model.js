@@ -9,6 +9,7 @@ const workshopSchema = new mongoose.Schema({
   instructor: { type: String, required: true },
   image: { type: String },
 });
+
 const registrationSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   workshop: { type: mongoose.Schema.Types.ObjectId, ref: "Workshop" },
