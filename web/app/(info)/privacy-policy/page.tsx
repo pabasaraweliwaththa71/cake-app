@@ -78,7 +78,14 @@ export default function PrivacyPolicy() {
         alteration, and destruction.
       </p>
 
-     
+      <h2 className="text-2xl font-bold mt-8 mb-4">
+        Changes to This Privacy Policy
+      </h2>
+      <p className="text-lg mb-4">
+        We may update this Privacy Policy from time to time. We will notify you
+        of any changes by posting the new policy on our website and updating the
+        effective date.
+      </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Contact Us</h2>
       <p className="text-lg mb-4">
