@@ -62,14 +62,7 @@ export default function PrivacyPolicy() {
         <li>Legal authorities if required by law or to protect our rights</li>
       </ul>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Your Rights</h2>
-      <p className="text-lg mb-4">You have the right to:</p>
-      <ul className="list-disc list-inside text-lg mb-4">
-        <li>Access and update your personal information</li>
-        <li>Request the deletion of your data</li>
-        <li>Object to the processing of your data</li>
-        <li>Withdraw your consent at any time</li>
-      </ul>
+      
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Data Security</h2>
       <p className="text-lg mb-4">
